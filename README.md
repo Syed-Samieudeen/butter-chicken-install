@@ -81,13 +81,17 @@ Both you and your friend must use **exactly the same** relay line in your config
 
 ## 6. Pair with your friend (once)
 
-1. Person A: **Pair devices** → **Create invitation**. Send the complete invitation text or QR code to Person B privately. It expires in 10 minutes.
-2. Person B: **Pair devices** → paste the invitation (or scan the QR) → **Connect to friend**.
+1. Person A: **Pair devices** → **Create a code**. Send the complete 6-digit code to Person B privately. It works once and expires in 10 minutes.
+2. Person B: **Pair devices** → enter the 6 digits → **Connect**.
 3. Both of you compare **every group** of the security code on a trusted channel (call or in person). Only continue if they match.
-4. Both people choose **I verified the code**.
+4. Both people choose **Confirm**.
 5. Send a test message in each direction.
 
 Keep the app running and unlocked on both computers to receive messages. Messages sent while your friend is offline are kept encrypted on your computer and delivered when they come back online.
+
+## Screen lock
+
+After 10 minutes without activity, your screen asks for your passphrase to show your conversation again. Your connection stays on while locked, so messages keep arriving. Keep this browser tab open to stay connected.
 
 ## Updating
 
@@ -102,7 +106,7 @@ Your history and identity are kept in your user data folder, which the install d
 ## Troubleshooting
 
 - **`butter-chicken` not found:** open a new terminal. Check the PATH steps above, or run `npm prefix -g` to find where npm installs global commands.
-- **Internet shows "relay offline":** check that the config line matches exactly on both computers, the app was restarted, and your internet connection works.
+- **Internet shows "Reconnecting to relay…":** check that the config line matches exactly on both computers, the app was restarted, and your internet connection works.
 - **Friend offline:** both apps must be running and unlocked.
 - **Identity changed warning:** stop and confirm with your friend before doing anything else.
 - **Port 3000 in use:** set `BC_UI_PORT` to another port in the config file.
