@@ -51,40 +51,27 @@ butter-chicken --version
 
 Add the `export PATH=...` line to your shell startup file (`~/.bashrc` or `~/.zshrc`) to keep it.
 
-## 3. Run it once and find your config file
+## 3. Run it
 
 ```bash
 butter-chicken
 ```
 
-The terminal prints a **Config file** path and a **Local UI** address (normally `http://localhost:3000`). Leave this terminal open while you use the app. Stop it later with **Ctrl+C**.
+Leave this terminal open while you use the app. Stop it later with **Ctrl+C**.
 
-## 4. Connect through the Butter Chicken relay
+Open **http://localhost:3000** in your browser. The Cloudflare relay is already connected — no config file edit is needed.
 
-Both you and your friend must use **exactly the same** relay line in your config file.
+## 4. Create your identity
 
-1. Stop the app with Ctrl+C.
-2. Open the **Config file** path printed in step 3 (create it if it does not exist).
-3. Add this line (or copy `.env.example` from this repository and use its contents):
+1. Create your identity with your name and a strong passphrase (12+ characters). **There is no account recovery.** Keep the passphrase safe.
+2. Never copy another person's data folder or keys. Each person creates their own identity.
 
-   ```dotenv
-   BC_CLOUDFLARE_RELAY=butterchickenworker.bakri-downtime-sub.workers.dev
-   ```
+## 5. Pair with your friend (once)
 
-4. Save the file and run `butter-chicken` again.
-
-## 5. Create your identity
-
-1. Open **http://localhost:3000** in your browser (this is your own computer only).
-2. Create your identity with your name and a strong passphrase (at least 12 characters). **There is no account recovery.** Keep the passphrase safe.
-3. Never copy another person's data folder or keys. Each person creates their own identity.
-
-## 6. Pair with your friend (once)
-
-1. Person A: **Pair devices** → **Create a code**. Send the complete 6-digit code to Person B privately. It works once and expires in 10 minutes.
-2. Person B: **Pair devices** → enter the 6 digits → **Connect**.
-3. Both of you compare **every group** of the security code on a trusted channel (call or in person). Only continue if they match.
-4. Both people choose **Confirm**.
+1. **Person A:** **Pair devices** → **Create a code**. Send the complete 6-digit code to Person B privately. It works once and expires in 10 minutes.
+2. **Person B:** **Pair devices** → enter the 6 digits → **Connect**.
+3. **Both:** Compare **every group** of the security code on a trusted channel (call or in person). Only continue if they match.
+4. **Both** choose **Confirm**.
 5. Send a test message in each direction.
 
 Keep the app running and unlocked on both computers to receive messages. Messages sent while your friend is offline are kept encrypted on your computer and delivered when they come back online.
@@ -106,7 +93,7 @@ Your history and identity are kept in your user data folder, which the install d
 ## Troubleshooting
 
 - **`butter-chicken` not found:** open a new terminal. Check the PATH steps above, or run `npm prefix -g` to find where npm installs global commands.
-- **Internet shows "Reconnecting to relay…":** check that the config line matches exactly on both computers, the app was restarted, and your internet connection works.
+- **Internet shows "Reconnecting to relay…":** the app restarts the relay connection automatically. Check your internet connection.
 - **Friend offline:** both apps must be running and unlocked.
 - **Identity changed warning:** stop and confirm with your friend before doing anything else.
 - **Port 3000 in use:** set `BC_UI_PORT` to another port in the config file.
