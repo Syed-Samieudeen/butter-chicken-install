@@ -1,6 +1,6 @@
 # Butter Chicken
 
-Private, end-to-end encrypted chat. Each person runs the app on their own computer and opens it in their own browser at `http://localhost:3000`. Messages are encrypted in your browser before they leave your computer, and your history is stored only on your devices.
+Two-person, end-to-end encrypted chat. Each person runs the app on their own computer and opens it in their own browser at `http://localhost:3000`. Messages are encrypted in your browser before they leave your computer, and your history is stored only on your devices.
 
 This repository contains only what you need to install and run the app. There is no source code to build.
 
@@ -63,36 +63,22 @@ Open **http://localhost:3000** in your browser. The Cloudflare relay is already 
 
 ## 4. Create your identity
 
-1. Create your identity with your name and a strong passphrase (12+ characters). Save the separate recovery key shown after setup somewhere private and offline. The recovery key can set a new passphrase if you forget the old one; losing both means the vault cannot be opened.
+1. Create your identity with your name and a strong passphrase (12+ characters). **There is no account recovery.** Keep the passphrase safe.
 2. Never copy another person's data folder or keys. Each person creates their own identity.
 
-## 5. Add contacts (pair with a 6-digit code)
+## 5. Pair with your friend (once)
 
-You can pair with multiple contacts. For each contact:
-
-1. **Person A:** **Add contact** → **Create a code**. Send the complete 6-digit code to Person B privately. It works once and expires in 10 minutes.
-2. **Person B:** **Add contact** → enter the 6 digits → **Connect**.
+1. **Person A:** **Pair devices** → **Create a code**. Send the complete 6-digit code to Person B privately. It works once and expires in 10 minutes.
+2. **Person B:** **Pair devices** → enter the 6 digits → **Connect**.
 3. **Both:** Compare **every group** of the security code on a trusted channel (call or in person). Only continue if they match.
 4. **Both** choose **Confirm**.
 5. Send a test message in each direction.
 
-Keep the app running and unlocked to receive messages. Messages sent while a contact is offline are kept encrypted on your computer and delivered when they come back online.
-
-## 6. Group chats
-
-After you have paired with at least two contacts, you can create a group chat (3+ people total including you).
-
-- Open **New group**, choose a name, and select at least two paired contacts.
-- Group messages are encrypted and delivered to each member you are paired with through the relay.
-- For everyone to participate in the same group conversation, all members should pair with each other and create/use the group on their own devices.
+Keep the app running and unlocked on both computers to receive messages. Messages sent while your friend is offline are kept encrypted on your computer and delivered when they come back online.
 
 ## Screen lock
 
-After 10 minutes without activity, your screen asks for your passphrase to show your conversations again. Your connection stays on while locked, so messages keep arriving. Keep this browser tab open to stay connected.
-
-## Passphrase and recovery
-
-In **Settings → Passphrase & recovery**, you can change your passphrase while unlocked and view/copy your recovery key. If you forget the passphrase, choose **Forgot passphrase? Use recovery key** on the unlock screen, enter the recovery key, and set a new passphrase. This preserves your identity, contacts and local history. The recovery key is not the passphrase; keep it somewhere separate and private. If both are lost, the encrypted vault cannot be recovered.
+After 10 minutes without activity, your screen asks for your passphrase to show your conversation again. Your connection stays on while locked, so messages keep arriving. Keep this browser tab open to stay connected.
 
 ## Updating
 
@@ -104,14 +90,12 @@ npm install --global ./butter-chicken-<new-version>.tgz
 
 Your history and identity are kept in your user data folder, which the install does not change. Back up that folder while the app is stopped if you want a copy.
 
-**Important for this release:** This update changes pairing/contact storage and adds group chats. All parties should update to the same version, and you may need to pair again if you are coming from an older release. After updating, do a hard refresh in your browser (`Ctrl+F5` / `Cmd+Shift+R`).
-
 ## Troubleshooting
 
 - **`butter-chicken` not found:** open a new terminal. Check the PATH steps above, or run `npm prefix -g` to find where npm installs global commands.
 - **Internet shows "Reconnecting to relay…":** the app restarts the relay connection automatically. Check your internet connection.
-- **Contact offline:** both apps must be running and unlocked.
-- **Identity changed warning:** stop and confirm with your contact before doing anything else.
+- **Friend offline:** both apps must be running and unlocked.
+- **Identity changed warning:** stop and confirm with your friend before doing anything else.
 - **Port 3000 in use:** set `BC_UI_PORT` to another port in the config file.
 - **Stopping:** Ctrl+C in the terminal running `butter-chicken`.
 
