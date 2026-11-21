@@ -63,7 +63,7 @@ Open **http://localhost:3000** in your browser. The Cloudflare relay is already 
 
 ## 4. Create your identity
 
-1. Create your identity with your name and a strong passphrase (12+ characters). **There is no account recovery.** Keep the passphrase safe.
+1. Create your identity with your name and a strong passphrase (12+ characters). Save the separate recovery key shown after setup somewhere private and offline. The recovery key can set a new passphrase if you forget the old one; losing both means the vault cannot be opened.
 2. Never copy another person's data folder or keys. Each person creates their own identity.
 
 ## 5. Add contacts (pair with a 6-digit code)
@@ -89,6 +89,10 @@ After you have paired with at least two contacts, you can create a group chat (3
 ## Screen lock
 
 After 10 minutes without activity, your screen asks for your passphrase to show your conversations again. Your connection stays on while locked, so messages keep arriving. Keep this browser tab open to stay connected.
+
+## Passphrase and recovery
+
+In **Settings → Passphrase & recovery**, you can change your passphrase while unlocked and view/copy your recovery key. If you forget the passphrase, choose **Forgot passphrase? Use recovery key** on the unlock screen, enter the recovery key, and set a new passphrase. This preserves your identity, contacts and local history. The recovery key is not the passphrase; keep it somewhere separate and private. If both are lost, the encrypted vault cannot be recovered.
 
 ## Updating
 
